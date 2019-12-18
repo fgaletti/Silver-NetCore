@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; /* 18 */
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../node_modules/alertifyjs/build/css/alertify.min.css';
+@import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+
+/* GENERAL STYLES */
+:root {
+    --mainYellow: #fdbe02;
+    /*--mainWhite: #000000;*/
+    --mainBlack: #000000;
+    --mainGrey: #9b9999;
+    --mainBlue: #2A4480;
+    --TransGrey: rgba(0, 0, 0, 0.1);
+    --mainCharcol: #4A4A51;
+    --salmon : #FA8072;
+    --green: #008000;
+    --white: #fff; 
+    --lightblue: #3498DB ;
+    --lightblue2: rgb(129, 180, 214) ;
+  }
