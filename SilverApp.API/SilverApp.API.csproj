@@ -12,5 +12,6 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.4" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Angular4" Version="1.1.0" />
+    <PackageReference Include="GitHub" Version="1.18.0" />
   </ItemGroup>
 </Project>
