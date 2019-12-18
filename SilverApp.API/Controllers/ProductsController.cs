@@ -89,9 +89,10 @@ namespace SilverApp.API.Controllers
                         await file.CopyToAsync(fileStream);
                     }
                 }
-                string imageName = Request.Host.Value + "/uploads/" + sequenceValue.ToString() + "_" + file.FileName;
-
-                return Ok(imageName) ;
+             //  string imageName = Request.Host.Value + "/uploads/" + sequenceValue.ToString() + "_" + file.FileName;
+             // just return the filename, the url will be added in angular
+                string imageName =  file.FileName;
+            return Ok(imageName) ;
             }
 
 
