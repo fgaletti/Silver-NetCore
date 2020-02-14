@@ -1,0 +1,17 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col col-md-10">
+        <h2>List of Products</h2>
+        <ul class="products">
+          <li *ngFor="let product of listProducts"
+            [class.selected]="product === selectedProduct"
+            (click)="onSelect(product.id)">
+            <span class="badge">{{product.id}}</span> {{product.name}}
+          </li>
+        </ul>
+    </div>
+   
+  </div>
+</div>
+

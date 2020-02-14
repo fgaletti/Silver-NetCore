@@ -1,0 +1,40 @@
+<div class="container ">
+   
+    <div class="row justify-content-center  row-register2">
+        <div class="col col-sm-10  col-md-8  col-lg-6 justify-content-center">
+
+           <form class="container container-form mt-3" [formGroup]="loginForm" (ngSubmit)="login()">
+           
+            <div class="form-group">   
+              <h4 class="text-blue"> Login</h4>   
+            </div>  
+
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input formControlName="email" 
+                [ngClass]="{'is-invalid': loginForm.get('email').errors && loginForm.get('email').touched}" 
+                 type="email" class="form-control" id="email" placeholder="">
+                <div class="invalid-feedback" *ngIf="loginForm.get('email').touched && loginForm.get('email').hasError('required')">Email is requiered</div>
+
+            </div>
+              <div class="form-group">
+                  <label for="password">Password</label>
+                  <input formControlName="password" 
+                  [ngClass]="{'is-invalid': loginForm.get('password').errors
+                  && loginForm.get('password').touched}"
+                   type="password" class="form-control" id="password" >
+
+                  <div class="invalid-feedback" *ngIf="loginForm.get('password').hasError('required')
+      && loginForm.get('password').touched">Password is required</div>
+
+                </div>
+              
+               
+                <div class=" text-center">  
+                     <button class="btn btn-success" [disabled]="!loginForm.valid" type="submit">Login</button>
+                </div>
+          </form>
+        </div>
+       
+    </div>
+  </div>

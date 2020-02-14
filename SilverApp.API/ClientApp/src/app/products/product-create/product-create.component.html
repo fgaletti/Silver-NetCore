@@ -1,0 +1,136 @@
+<div class="container ">
+    <div class="row justify-content-center  row-register2 mt-4">
+        <div class="col col-sm-10  col-md-8  col-lg-6 justify-content-center">
+
+           <form class="container container-form" [formGroup]="productForm"  (ngSubmit)="createProduct()">
+              
+              <div class="form-group">   
+                  <h4 class="text-blue"> Create</h4>   
+              </div>
+              <div class="form-group">              
+                    <label for="name" class="form-label"> Name</label>
+                     <input  
+                     formControlName="name" 
+                     [ngClass]="{'is-invalid': productForm.get('name').errors && productForm.get('name').touched}" 
+                     type="text" class="form-control" id="name" placeholder="nameProduct" >
+
+                     <div class="invalid-feedback" *ngIf="productForm.get('name').touched && productForm.get('name').hasError('required')">name of product is requiered</div>
+              </div>
+            <div class="form-group">
+                  <label for="description"> Description</label>
+                  <input  formControlName="description" 
+                  [ngClass]="{'is-invalid': productForm.get('description').errors && productForm.get('description').touched}" 
+                   type="text" class="form-control" id="description" placeholder="Description">
+                
+                  <div class="invalid-feedback" *ngIf="productForm.get('description').touched && productForm.get('description').hasError('required')">Description is requiered</div>
+
+                </div>
+               <div class="form-group">
+                    <label for="price">Price</label>
+                    <input  formControlName="price"  (keypress)="onlyDecimalNumberKey($event)"
+                    [ngClass]="{'is-invalid': productForm.get('price').errors && productForm.get('price').touched}" 
+                     type="text" class="form-control" id="price" placeholder="">
+                  
+                    <div class="invalid-feedback" *ngIf="productForm.get('price').touched && productForm.get('price').hasError('required')"> Price is requiered</div>
+  
+               </div>  
+
+              <div class="form-group">
+                <label for="sku">SKU</label>
+                <input formControlName="sku" 
+                [ngClass]="{'is-invalid': productForm.get('sku').errors && productForm.get('sku').touched}" 
+                 type="sku" class="form-control" id="sku" placeholder="sku">
+                <div class="invalid-feedback" *ngIf="productForm.get('sku').touched && productForm.get('sku').hasError('required')">Sku is requiered</div>
+
+             </div>
+
+             <div>
+                    <label>Category: </label>
+                    <select (change)="selectCategoryClick($event.target.value)">
+                        <option value="0">--Select Category--</option>
+                        <option *ngFor="let category of listCategories" value={{category.id}}>
+                            {{category.name}}
+                        </option>
+                    </select>
+                </div>
+              
+            <div class="form-check">
+                <label for="isActive"   class="form-check-label">
+                  <input type="checkbox" formControlName="isActive" class="form-check-input" id="isActive" value= "true">Is Active
+                </label>
+              </div>
+               
+               <!-- file uploader    -->
+               
+          <div class="row mt-3 mb-4 dashed ">
+          
+            <div class="col col-sm-12 col-md-12  text-center">
+
+                <h5>Add Image</h5>
+
+                <!--div ng2FileDrop
+                    [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                    (fileOver)="fileOverBase($event)"
+                    [uploader]="uploader"
+                    class="card bg-faded p-3 text-center mb-3 my-drop-zone">
+                    <i class="fa fa-upload fa-3x"></i>
+                    Drop Photos Here
+                </div -->
+
+
+                <!-- show image-->
+
+                    
+                  <img  *ngIf="imageLoaded" class="img-thumbnail mb-2" src="{{ productImageUrl}}" alt="img-thumbnail p-1" alt="">                     
+                
+                <input type="file" ng2FileSelect [uploader]="uploader" (change)="onFileSelected($event)" #fileInput />
+                <button *ngIf="imageLoaded" type="button" class="btn btn-danger btn-s"
+                          (click)="uploader.clearQueue(); deleteImage();" >
+                      <span class="fa fa-trash"></span> Remove 
+                  </button>    
+            </div>
+
+       
+
+          </div>
+
+          <!--INICO UPLOAD-->
+          <div class="col-md-9" style="margin-bottom: 40px" *ngIf="uploader?.queue?.length">
+              <table class="table">
+                  <tbody>
+                  <tr *ngFor="let item of uploader.queue">
+                      <td><strong>{{ item?.file?.name }}</strong></td>
+                      <td *ngIf="uploader.options.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                  </tr>
+                  </tbody>
+              </table>
+        
+              <div>
+                  <div>
+                      Queue progress:
+                      <div class="progress mb-4" >
+                          <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                      </div>
+                  </div>
+                  <button type="button" class="btn btn-success btn-s"
+                          (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                      <span class="fa fa-upload"></span> Upload 
+                  </button>
+                 
+                  <button type="button" class="btn btn-danger btn-s"
+                          (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                      <span class="fa fa-trash"></span> Remove 
+                  </button>
+              </div>
+          </div>
+          <!-- FIN UPLOAD-->
+                <div class=" text-center">  
+                     <button class="btn btn-success" [disabled]="!productForm.valid" type="submit">Create Product</button>
+                    <!--button type="submit" class="btn btn-primary">Create Account</button>-->
+                </div>
+          </form>
+        </div>
+       
+    </div>
+  </div>
+

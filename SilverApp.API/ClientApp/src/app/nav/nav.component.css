@@ -1,0 +1,194 @@
+@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+@import url("https://fonts.googleapis.com/css?family=Calligraffitti|Mali");
+
+.nav-color-blue {
+     background-color: var(--lightblue)!important;
+     /*background-color: #2A4480; */
+    /*background-color: #303E60;*/
+}
+
+.nav-color-silver {
+  background-color: #F9F8F8  ;
+  /*background-color: #2A4480; */
+ /*background-color: #303E60;*/
+
+}
+
+
+.text-green {
+  color :var(--green)!important;
+}
+  .text-yellows {
+    color : var(--mainYellows);
+  }
+
+  .text-yellow {
+    color :var(--mainYellow)!important;
+  }
+
+  .text-salmon {
+    color :var(--salmon);
+  }
+
+  .text-white {
+    color :var(--white)!important;
+  }
+
+  .text-charcol {
+    color :var(--mainCharcol)!important;
+  }
+
+  
+
+  .dropdown-toggle , .dropdown-item{
+    cursor: pointer;
+}
+
+
+body {
+  color: var(--mainBlack);
+  background: var(--mainWhite);
+  font-family: "Mali", cursive;
+}
+.text-slanted {
+  font-family: "Calligraffitti", cursive;
+}
+
+.btn-yellow {
+  background: var(--mainYellow);
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  color: var(--mainBlack);
+  border-radius: 0!important; /* sharp edged */
+}
+
+
+
+
+.btn-yellow:hover {
+  background: var(--mainBlack);
+  color: var(--mainYellow);
+
+}
+
+
+.btn-blue {
+  border-color:  var(--lightblue) !important;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  color: var(--lightblue)!important;
+  border-radius: 0!important; /* sharp edged */
+}
+
+.btn-blue:hover {
+  background: var(--lightblue)!important;
+  color: var(--white)!important;
+
+}
+
+
+
+/*navbar*/
+
+.navbar-toggler {
+  outline: none !important;
+  border: none;
+  font-size: 2.2rem;
+  color: #fdbe02!important; /* var(--mainYellow)!important;*/
+}
+
+/*deactivated*/
+.nav-link {
+  font-size: 1rem;
+  border-bottom: 0.1rem solid var(--mainWhite);
+}
+
+/*activated*/
+.nav-active {
+  font-size: 1.6rem;
+  border-bottom: 0.1rem solid var(--mainYellow);
+}
+
+.navbar-icon {
+  font-size: 1.6rem;
+}
+
+.navbar-cart-icon {
+  font-size: 1.6rem;
+  color: var(--mainBlack);
+  position: relative;  /*  this is important as parent  */
+}
+
+.navbar-cart-icon:hover {
+  color: var(--mainGrey);
+}
+
+.cart-items {
+  color: var(--mainWhite);
+  position: absolute;
+  top: -15%;
+  right: -25%;
+  padding: 0.2rem 0.3rem;
+  background: var(--mainYellow);
+  font-size: 0.1rem;
+  border-radius: 50%;
+}
+
+/*banner*/
+
+.banner {
+  min-height: calc(100vh - 101px); /*view hight value*/
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; /*paralex effect , image fixed*/
+  background-repeat: no-repeat;
+}
+
+
+/*FEATURED SECTION*/
+
+.old-price {
+  text-decoration: line-through;
+}
+
+.featured-container {
+  background: var(--TransGrey);
+  position: relative; /* allows to put elements un positions*/
+  overflow: hidden; /* hide the element when its beyond the margin (container)*/
+}
+
+.featured-search-icon {
+  background: var(--mainWhite);
+  padding: 0.2rem 0.4rem;
+  display: inline-block;
+  position: absolute;
+  right: 0%;
+  top: 50%;  /*this works because container is set to relative*/
+  font-size: 1.2rem;
+  transform: translateX(110%);
+  transition: all 1s ease-in-out;
+  cursor: pointer;
+
+}
+
+.featured-container:hover .featured-search-icon{
+  transform: translateX(0%);
+}
+
+.featured-store-link {
+  background: var(--mainYellow);
+  color: var(--mainBlack);
+  padding: 0.2rem 0.4rem;
+  display: inline-block;
+
+  position: absolute;
+  right: 0%;
+  top: 70%;  /*this works because container is set to relative*/
+
+  transform: translateX(110%);
+  transition: all 1s ease-in-out;
+}
+
+.featured-container:hover .featured-store-link{
+  transform: translateX(0%);
+}

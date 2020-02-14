@@ -1,0 +1,58 @@
+<div class="container background-products ">
+            
+    <div class="row justify-content-center  row-register2 mt-2">
+        <div class="col col-sm-10  col-md-8  col-lg-12 justify-content-center">
+
+        <form class="container container-form" [formGroup]="productForm"    >
+              
+              <div class="form-group">   
+                  <h4 class="text-blue"> Detail Product</h4>   
+              </div>
+            
+              <div class="form-group">  
+                    <label for="name" class="form-label title"> Product: </label>
+                    <span>  {{product?.name}}</span>  
+              </div>
+              <div class="form-group">  
+                    <label for="description" class="form-label title "> Description: </label>                           
+                    <span class="line-breaker">  {{product?.description}}</span>          
+              </div>     
+          </form>
+        </div>
+    </div>
+  </div>
+
+
+<div class="container background-products mt-2 ">
+<div class="row justify-content-center">
+        <!--single product-->
+          <div *ngFor="let  productImage of listProductImages" class="col-9  col-sm-4 col-md-3 col-lg-3 text-center"> 
+            <div class="featured-container p-2 mt-2 text-center justify-content-center">
+                  <img (click)="showModalPopupImage(productImage.urlImage)" src="{{replaceUrl(productImage.urlImage) || '../../assets/logo_silver.png'}}" alt="product" class="img-fluid img-list" >
+                <!--  <a (click)="showModalPopupImage(productImage.urlImage)" class="featured-store-link text-capitalize">View Image</a> -->
+
+            </div>
+          </div>
+     </div>    <!--row-->        
+
+</div>
+
+<!-- modal popup image-->
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Detail</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+            <img  src="{{replaceUrl(urlImageSelected) || '../../assets/logo_silver.png'}}" alt="product" class="img-fluid" >
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    </div>
+  </ng-template>

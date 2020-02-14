@@ -1,0 +1,103 @@
+
+  .carousel-image  {
+    height: auto;
+    width:  100vw;
+
+ }
+
+ img22 {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-control-prev-icon {
+     color:black;
+     background-image: url('../../../assets/watch.jpeg');
+     background:url('../../../assets/watch.jpeg');
+  }
+
+  .carousel-control-prev  {
+    color:black;
+    background-image: url('../../../assets/watch.jpeg');
+    background:url('../../../assets/watch.jpeg');
+ }
+
+ .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px !important;
+  width: 100px !important;
+  outline: black !important;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black !important;
+  background-image: none !important;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: red;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: red;
+}
+
+
+ 
+
+ .height-max{
+    min-height: calc(100vh - 76px);
+    background:url('../../../assets/watch.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    animation-name: zoom;
+    animation-duration: 20s;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
+  }
+
+  .background-products{
+    background-color: #F9F8F8  ;
+    /*background-color: #2A4480; */
+   /*background-color: #303E60;*/
+  
+  }
+
+  .filled {
+    color: var(--mainYellow)!important;
+  }
+
+  .star {
+    font-size: 1.5rem;
+    color: #b0c4de;
+  }
+
+  .featured-store-link {
+    background: var(--mainYellow);
+    color: var(--mainBlack);
+    padding: 0.2rem 0.4rem;
+  
+     /*this works because container is set to relative*/
+     position: absolute;
+    top: 30%; 
+    right: 70%;
+    display: none; /* show */
+    transform: translateX(110%);
+    transition: all 1s ease-in-out;
+  }
+
+  .featured-container:hover .featured-store-link{
+    /*transform: translateX(0%); */
+    display: block;
+  }
+
+  .color-blue {
+    background-color: var(--lightblue2)!important;
+    color: var(--white);
+  }

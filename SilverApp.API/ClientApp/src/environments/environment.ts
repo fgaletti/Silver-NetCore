@@ -6,7 +6,8 @@ export const environment = {
   production: false,
     apiUrl: 'http://localhost:5000/api/',
     urlImages: 'http://localhost:5000/uploads/',
-  isMoldalPopUpShowed: false
+    isMoldalPopUpShowed: false,
+    url: 'http://localhost:5000' 
 
 };
 

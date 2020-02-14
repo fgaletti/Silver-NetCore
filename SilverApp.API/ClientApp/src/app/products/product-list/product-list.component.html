@@ -1,0 +1,111 @@
+<!--p
+  product-list works!
+</p-->
+
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+ 
+
+  <div class="container-fluid background-products ">
+      
+      <div class="row justify-content-center  bg-secondary">
+          <div class="col col-sm-12  col-md-12  col-lg-12 text-center bg-warning pl-0 pr-0">
+              
+              <ngb-carousel *ngIf="images">
+                  <ng-template ngbSlide>
+                    <img class="carousel-image" [src]="images2[0]" alt="Random first slide">
+                    <div class="carousel-caption">
+                      <h3></h3>
+                      <p></p>
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <img class="carousel-image" [src]="images2[1]" alt="Random second slide">
+                    <div class="carousel-caption">
+                      <h3></h3>
+                      <p></p>
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <img class="carousel-image" [src]="images2[2]" alt="Random third slide">
+                    <div class="carousel-caption">
+                      <h3></h3>
+                      <p></p>
+                    </div>
+                  </ng-template>
+                </ngb-carousel>  
+
+         </div>
+        
+      </div>   
+      
+
+      <div class="row justify-content-center">
+          <!--single product-->
+            <div *ngFor="let product of listProducts" class="col-9  col-sm-4 col-md-3 col-lg-3 text-center"> 
+              <div class="featured-container p-2 mt-2 text-center justify-content-center">
+                  <a href="#" [routerLink]="['/product-detail',  product.id]">
+                      <img src="{{replaceUrl(product.urlImage) || '../../assets/logo_silver.png'}}" alt="product" class="img-fluid">
+                      <!--   a href="#" [routerLink]="['/product-detail',  product.id]" class="featured-store-link text-capitalize">Add to cart</a-->
+
+                  </a>
+              </div>
+              <h6 class="text-capitalize text-center my-2"> {{product.name}}</h6>
+              <h6 class="text-center">
+                <span class="text-muted old-price mx-2">$ {{product.price}}</span>
+                <span>$0</span>
+              </h6>
+                <!--currentRate : should be a field from database; product.rate --> 
+                 <!-- [(rate)] to update --> 
+              <ngb-rating   [rate]=currentRate   >
+                  <ng-template let-fill="fill" let-index="index">
+                    <span class="star" [class.filled]="fill === 100" >&#9733;</span>
+                  </ng-template>
+                </ngb-rating>
+
+                  <div class=" text-center">  
+                    <button class="btn color-blue"  type="submit">Add to Cart</button>
+                </div>
+                <hr>
+               
+                <!--  <pre>Rate: <b>{{currentRate}}</b></pre>  --> 
+            </div>
+       </div>    <!--row-->          
+      
+      
+  </div> 
+
+  <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Francisco Galetti</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <span> This site was created with .NET CORE - ANGULAR and MYSQL for the purpose of serving as a portfolio to showcase some of my projects. 
+            </span>
+             <br>
+             <br>
+             <span>You can register as a new user if you like.  </span>
+             <br>
+              <span>In order to create new products, enter username: admin@gmail.com
+                   password: test</span>
+          
+                
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+      </div>
+    </ng-template>
+
+
+  
